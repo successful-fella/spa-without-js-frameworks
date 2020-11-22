@@ -16,11 +16,12 @@ const loadHash = (hash) => {
 		// Need better handler
 		if(development) {
 			$('#app').html(what.responseText)
+			fixURLs()
 		} else {
 			$('#app').html(`
 				<h3>404 Page Not Found</h3>
 				<p>The page you are looking for was not found :(</p>
-				<a href="home">Go to home</a>
+				<a href="#/home">Go to home</a>
 			`)
 		}
 	})

@@ -6,3 +6,15 @@
 .main-content {
 	margin-bottom: 70px;
 }
+
+.nav-scroll {
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+
+@media (max-width: 550px) {
+	.nav-scroll ul {
+		display: inline-flex;
+	}
+}

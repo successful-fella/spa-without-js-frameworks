@@ -34,4 +34,6 @@ const fixURLs = () => {
 	})
 
 	fixURLs()
+
+	$(document).ajaxStart(() => Pace.restart());
 })()

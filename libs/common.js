@@ -1,3 +1,5 @@
+const development = false
+
 const loadHash = (hash) => {
 	hash = window.location.hash.replace("#/", "").replace(" ", "")
 
@@ -10,9 +12,17 @@ const loadHash = (hash) => {
 	$.getScript("scripts/"+script_name).done((script) => {
 		// Load new page by triggering loadPage function of new script
 		loadPage()
-	}).fail(() => {
+	}).fail((what) => {
 		// Need better handler
-		alert("There was problem from our end, please try again")
+		if(development) {
+			$('#app').html(what.responseText)
+		} else {
+			$('#app').html(`
+				<h3>404 Page Not Found</h3>
+				<p>The page you are looking for was not found :(</p>
+				<a href="home">Go to home</a>
+			`)
+		}
 	})
 }
 

@@ -18,3 +18,24 @@
 		display: inline-flex;
 	}
 }
+
+@keyframes shine {
+	0% {
+		background-color: #ddd
+	}
+	50% {
+		background-color: #eee
+	}
+	100% {
+		background-color: #ddd
+	}
+}
+
+.skeleton-bar {
+	background-color: #ddd;
+	height: 18px;
+	width: auto;
+	animation-name: shine;
+	animation-duration: 0.8s;
+	animation-iteration-count: infinite;
+}

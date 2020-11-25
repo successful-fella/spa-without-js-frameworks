@@ -8,13 +8,13 @@ function loadPage(num) {
 }
 
 function getAnimeList(num) {
-	if(num < 0 || num > 7 || num == undefined) {
+	if(num < 0 || num > 7 || num == undefined || num == '') {
 		let num = prompt("How many should be fetched? (1-7)")
 		if(!num) {
 			window.history.back()
 			return
 		}
-		window.location.href = "/#/favorite-anime/"+num
+		window.location.href = "#/favorite-anime/"+num
 		return
 	}
 	let resp = '["Karakai no Takagi-san", "Kaguya-sama Love is War", "Adachi to Shimamura", "Clannad", "Re:zero", "KonoSuba", "Kanojo mo Kanojo"]'

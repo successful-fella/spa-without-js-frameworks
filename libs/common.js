@@ -6,12 +6,30 @@ const loadHash = (hash) => {
 	let script_name = "home.js"
 	if(hash != '') {
 		// Yeah, load that page for hash
-		script_name = hash + ".js"
+		try {
+			script_name = routes[hash][0] + ".js"
+		} catch(e) {
+			if(development) {
+				$('#app').html(`<h3>Routes is not created for this URL</h3>`)
+				fixURLs()
+			} else {
+				$('#app').html(`
+					<h3>404 Page Not Found</h3>
+					<p>The page you are looking for was not found :(</p>
+					<a href="#/home">Go to home</a>
+				`)
+			}
+			return
+		}
 	}
 
 	$.getScript("scripts/"+script_name).done((script) => {
 		// Load new page by triggering loadPage function of new script
-		loadPage()
+		if(hash != '') {
+			window[routes[hash][1]]()
+		} else {
+			loadHome()
+		}
 	}).fail((what) => {
 		// Need better handler
 		if(development) {

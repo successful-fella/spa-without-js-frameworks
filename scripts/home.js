@@ -5,7 +5,7 @@ function loadHome() {
 	})
 }
 
-function loadHome2() {
+function loadHome2(num) {
 	$.get("pages/home2.html", (resp) => {
 		$('#app').html(resp)
 	})

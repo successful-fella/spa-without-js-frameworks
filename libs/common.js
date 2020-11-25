@@ -3,6 +3,11 @@ const development = false
 const loadHash = (hash) => {
 	hash = window.location.hash.replace("#/", "").replace(" ", "")
 
+	// Remove slashes and make them arguments
+	const args = hash.split('/')
+	hash = args[0]
+	args.shift()
+
 	let script_name = "home.js"
 	if(hash != '') {
 		// Yeah, load that page for hash
@@ -26,7 +31,7 @@ const loadHash = (hash) => {
 	$.getScript("scripts/"+script_name).done((script) => {
 		// Load new page by triggering loadPage function of new script
 		if(hash != '') {
-			window[routes[hash][1]]()
+			window[routes[hash][1]](...args)
 		} else {
 			loadHome()
 		}

@@ -1,9 +1,12 @@
 ## What and Why?
-I'll add details ASAP
+Single Page Applications are love! They gives a whole amazing experience to user. But what about developers? Developers, specifically backend heros can't waste time in downloading tens of thousands of file and preparing server for proper Node hosting. They should be able to focus on their core application and functionality.
+
+This boilerplate gives a quick start and any backend, frontend dashboards can be easily added. There may be quite few many unoptimized code since I'm still developing this, so this is currently not in use for production. I've created a Electron desktop app for one of my client using this though (backend PHP & SQLite) and it turned out great!
 
 ## Goals DESC
 - [ ] Add more content to SPA pages for this boilerplate example
-- [ ] Create separate route.js file for better and scalable routing
+- [x] Pass URL as arguments to function
+- [x] Create separate route.js file for better and scalable routing
 - [x] Create basic hash change SPA
 
 ## Getting Started

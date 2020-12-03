@@ -14,6 +14,9 @@ This boilerplate gives a quick start and any backend, frontend dashboards can be
 ## Getting Started
 No need to download tens of thousand of files to get this super simple boilerplate running. Just clone the repository or download it, put it anywhere and run server to the location. If you use Apache server, you may put it to your public_html/htdocs/www directory. If you have PHP installed on your system, cd into project folder and run `php -S localhost:3000` or use Simple HTTP server python the same way.
 
+## Creating New Page
+In libs/routes.js, define your new URL route. Format - hash: [ 'script', 'function' ]. The hash change will run script and function mentioned in said script. Create new page in pages folder and fetch the page in the function mentioned in the routes file.
+
 ## First Commit Explained
 Usually everyone do something randomly on their local system and then realize, "I should have created a git repo for this". But it's too late and you end up writing "Initial Commit" as message instead of meaningful message (which can't be practically written since there is lot to explain). Yes same here, so here is explanation to first commit - In first commit, SPA works by checking hash in the URL and opening script in `scripts` folder corresponding to hash. If URL is https://example.com/#/list the script that will execute is `list.js`. There is one common function `loadPage()` which is responsible to load html file saved in `pages` folder.
 

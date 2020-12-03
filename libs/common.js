@@ -20,7 +20,7 @@ const loadHash = (hash) => {
 			} else {
 				$('#app').html(`
 					<h3>404 Page Not Found</h3>
-					<p>The page you are looking for was not found :(</p>
+					<p>The page you were looking for was not found :(</p>
 					<a href="#/home">Go to home</a>
 				`)
 			}

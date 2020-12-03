@@ -17,6 +17,7 @@ function getAnimeList(num) {
 		window.location.href = "#/favorite-anime/"+num
 		return
 	}
+	$('#anime-count').html(num)
 	let resp = '["Karakai no Takagi-san", "Kaguya-sama Love is War", "Adachi to Shimamura", "Clannad", "Re:zero", "KonoSuba", "Kanojo mo Kanojo"]'
 	let list = ''
 	resp = JSON.parse(resp)

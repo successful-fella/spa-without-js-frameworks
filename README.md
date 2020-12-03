@@ -6,6 +6,7 @@ This boilerplate gives a quick start and any backend, frontend dashboards can be
 ## Goals DESC
 - [ ] Add more content to SPA pages for this boilerplate example
 - [ ] Add caching for statically loaded page on hash (though not much useful for small applications, this would be a great addition for scalable ones)
+- [ ] Add PWA support
 - [x] Pass URL as arguments to function
 - [x] Create separate route.js file for better and scalable routing
 - [x] Create basic hash change SPA

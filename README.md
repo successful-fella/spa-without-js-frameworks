@@ -19,6 +19,11 @@ No need to download tens of thousand of files to get this super simple boilerpla
 ## Creating New Page
 In libs/routes.js, define your new URL route. Format - hash: [ 'script', 'function' ]. The hash change will run script and function mentioned in said script. Create new page in pages folder and fetch the page in the function mentioned in the routes file.
 
+## PWA Support
+100 score on PWA Builder - https://to20.ml/spapwatest
+
+Comes with PWA Support packed. Update `libs/manifest.json` and `service-worker.js` as per need to make sure the PWA works on your localhost or server too.
+
 ## First Commit Explained
 Usually everyone do something randomly on their local system and then realize, "I should have created a git repo for this". But it's too late and you end up writing "Initial Commit" as message instead of meaningful message (which can't be practically written since there is lot to explain). Yes same here, so here is explanation to first commit - In first commit, SPA works by checking hash in the URL and opening script in `scripts` folder corresponding to hash. If URL is https://example.com/#/list the script that will execute is `list.js`. There is one common function `loadPage()` which is responsible to load html file saved in `pages` folder.
 

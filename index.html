@@ -10,6 +10,7 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 		<link rel="stylesheet" type="text/css" href="libs/custom.css">
+		<link rel="manifest" href="libs/manifest.json">
 	</head>
 
 	<body>
@@ -33,6 +34,20 @@
 
 		<div class="main-content container margin-bottom-70 flow-text" id="app"></div>
 
+		<script type="text/javascript">
+			if ("serviceWorker" in navigator) {
+				if (navigator.serviceWorker.controller) {
+					console.log("Active service worker found, no need to register");
+				} else {
+					// Register the service worker
+					navigator.serviceWorker.register("service-worker.js", {
+						scope: "./"
+					}).then(function (reg) {
+						console.log("Service worker has been registered for scope: " + reg.scope);
+					});
+				}
+			}
+		</script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<script src="libs/routes.js"></script>

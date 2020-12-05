@@ -70,4 +70,8 @@ const fixURLs = () => {
 	fixURLs()
 
 	$(document).ajaxStart(() => Pace.restart());
+
+	$.ajaxSetup({
+		cache: true
+	})
 })()

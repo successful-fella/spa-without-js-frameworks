@@ -20,7 +20,7 @@ No need to download tens of thousand of files to get this super simple boilerpla
 In libs/routes.js, define your new URL route. Format - hash: [ 'script', 'function' ]. The hash change will run script and function mentioned in said script. Create new page in pages folder and fetch the page in the function mentioned in the routes file.
 
 ## PWA Support
-100 score on PWA Builder - https://to20.ml/spapwatest
+100 score on PWA Builder - https://to20.ml/spa-pwa-test
 
 Comes with PWA Support packed. Update `libs/manifest.json` and `service-worker.js` as per need to make sure the PWA works on your localhost or server too.
 

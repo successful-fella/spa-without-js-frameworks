@@ -1,4 +1,4 @@
-const development = false
+const development = true
 
 const loadHash = (hash) => {
 	hash = window.location.hash.replace("#/", "").replace(" ", "")
@@ -16,7 +16,6 @@ const loadHash = (hash) => {
 		} catch(e) {
 			if(development) {
 				$('#app').html(`<h3>Routes is not created for this URL</h3>`)
-				fixURLs()
 			} else {
 				$('#app').html(`
 					<h3>404 Page Not Found</h3>
@@ -28,18 +27,23 @@ const loadHash = (hash) => {
 		}
 	}
 
-	$.getScript("scripts/"+script_name).done((script) => {
+	$.ajax({
+		type: "GET",
+		url: "scripts/"+script_name,
+		dataType: "script",
+		cache: true
+	}).done((script) => {
 		// Load new page by triggering loadPage function of new script
+		// console.log(script)
 		if(hash != '') {
 			window[routes[hash][1]](...args)
 		} else {
 			loadHome()
 		}
-	}).fail((what) => {
+	}).fail(() => {
 		// Need better handler
 		if(development) {
-			$('#app').html(what.responseText)
-			fixURLs()
+			$('#app').html("There was error fetching script")
 		} else {
 			$('#app').html(`
 				<h3>404 Page Not Found</h3>
@@ -71,7 +75,4 @@ const fixURLs = () => {
 
 	$(document).ajaxStart(() => Pace.restart());
 
-	$.ajaxSetup({
-		cache: true
-	})
 })()

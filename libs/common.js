@@ -1,4 +1,9 @@
-const development = true
+const development = false
+const not_found_text = `
+	<h3>404 Page Not Found</h3>
+	<p>The page you were looking for was not found :(</p>
+	<a href="#/home">Go to home</a>
+`
 
 const loadHash = (hash) => {
 	hash = window.location.hash.replace("#/", "").replace(" ", "")
@@ -17,11 +22,7 @@ const loadHash = (hash) => {
 			if(development) {
 				$('#app').html(`<h3>Routes is not created for this URL</h3>`)
 			} else {
-				$('#app').html(`
-					<h3>404 Page Not Found</h3>
-					<p>The page you were looking for was not found :(</p>
-					<a href="#/home">Go to home</a>
-				`)
+				$('#app').html(not_found_text)
 			}
 			return
 		}
@@ -45,20 +46,19 @@ const loadHash = (hash) => {
 		if(development) {
 			$('#app').html("There was error fetching script")
 		} else {
-			$('#app').html(`
-				<h3>404 Page Not Found</h3>
-				<p>The page you are looking for was not found :(</p>
-				<a href="#/home">Go to home</a>
-			`)
+			$('#app').html(not_found_text)
 		}
 	})
+	fixURLs()
 }
 
 
 // Function to prepend #/ to anchor tags
 const fixURLs = () => {
 	for(let i = 0; i < $('a').length; i++) {
-		$('a').eq(i).attr('href', '#/' + $('a').eq(i).attr('href'))
+		if(!$('a').eq(i).attr('href').startsWith('#/')) {
+			$('a').eq(i).attr('href', '#/' + $('a').eq(i).attr('href'))
+		}
 	}
 }
 
